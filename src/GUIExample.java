@@ -1,21 +1,52 @@
 import javax.swing.*;
 import java.awt.*;
+import java.io.File;
+import java.io.FileNotFoundException;
+
+import java.util.Scanner;
 
 public class GUIExample {
+
+    private static File regexFile=new File("regex.txt");
+    private static Scanner scanner;
+    private static String regexInfo;
+
+    static {
+        try {
+            scanner = new Scanner(regexFile);
+
+            regexInfo="<html>";
+            while (scanner.hasNext()){
+                String regex =scanner.nextLine();
+                regexInfo+="    "+regex+"<br>";
+            }
+            regexInfo+="</html>";
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+
     public static void main(String[] args) {
         JFrame frame = new JFrame("GUI Example");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        JLabel regExInfo=new JLabel("hello");
+        JLabel regExInfo=new JLabel(regexInfo);
 
-        // Left panel
-        JPanel leftPanel = new JPanel();
-        leftPanel.setBackground(Color.red);
-        leftPanel.setPreferredSize(new Dimension(600,700));
-        leftPanel.add(regExInfo);
+        regExInfo.setBorder(BorderFactory.createEmptyBorder(20,20,20,20));
+        regExInfo.setBackground(Color.WHITE);
+        regExInfo.setOpaque(true);
+
+
+
+
+
+        JScrollPane scrollPane = new JScrollPane(regExInfo);
+        scrollPane.createHorizontalScrollBar();
+
         // Right panel
         JPanel rightPanel = new JPanel(new BorderLayout());
         rightPanel.setBackground(Color.WHITE);
-        rightPanel.setPreferredSize(new Dimension(600,700));
+        rightPanel.setPreferredSize(new Dimension(400,700));
 
         // Top panel
         JPanel topPanel = new JPanel();
@@ -37,10 +68,12 @@ public class GUIExample {
         rightPanel.add(topPanel, BorderLayout.NORTH);
         rightPanel.add(bottomPanel, BorderLayout.SOUTH);
 
-        frame.add(leftPanel, BorderLayout.WEST);
+        frame.add(scrollPane, BorderLayout.WEST);
         frame.add(rightPanel, BorderLayout.EAST);
+        frame.setSize(1125,700);
+        frame.setLocationRelativeTo(null);
 
-        frame.pack();
+
         frame.setVisible(true);
     }
 }

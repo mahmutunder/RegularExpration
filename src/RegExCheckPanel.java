@@ -4,7 +4,7 @@ import java.awt.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class RegExTester extends JPanel {
+public class RegExCheckPanel extends JPanel {
 
     private JTextField regexField, stringField;
     private JLabel resultLabel;
@@ -12,7 +12,7 @@ public class RegExTester extends JPanel {
     private JPanel inputPanel;
     private JButton matchButton;
 
-    public RegExTester() {
+    public RegExCheckPanel() {
 
         // to hold all components
         contentPane = new JPanel();

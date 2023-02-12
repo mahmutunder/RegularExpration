@@ -5,16 +5,16 @@ import java.io.FileNotFoundException;
 
 import java.util.Scanner;
 
-public class GUIExample {
+public class RegexFrame {
 
-    private static RegExTester tester;
+    private static RegExCheckPanel tester;
 
     private static File regexFile=new File("regex.txt");
     private static Scanner scanner;
     private static String regexInfo;
 
     static {
-        tester= new RegExTester();
+        tester= new RegExCheckPanel();
         try {
             scanner = new Scanner(regexFile);
 
@@ -29,40 +29,19 @@ public class GUIExample {
         }
     }
 
-    public GUIExample(){
+    private JFrame frame;
+    private JLabel regExInfo;
+    private JScrollPane scrollPane;
+    private JPanel rightPanel;
+    private  JPanel bottomPanel;
+    private  JLabel label;
+    public RegexFrame(){
 
-        JFrame frame = new JFrame("GUI Example");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        JLabel regExInfo=new JLabel(regexInfo);
+      frame = new JFrame("GUI Example");
+      frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        regExInfo.setBorder(BorderFactory.createEmptyBorder(20,20,20,20));
-        regExInfo.setBackground(Color.WHITE);
-        regExInfo.setOpaque(true);
+      buildPanel();
 
-
-
-
-
-        JScrollPane scrollPane = new JScrollPane(regExInfo);
-        scrollPane.createHorizontalScrollBar();
-
-        // Right panel
-        JPanel rightPanel = new JPanel(new BorderLayout());
-        rightPanel.setBackground(Color.WHITE);
-        rightPanel.setPreferredSize(new Dimension(400,700));
-
-
-
-        // Bottom panel
-        JPanel bottomPanel = new JPanel();
-        bottomPanel.setBackground(Color.DARK_GRAY);
-
-        JLabel label = new JLabel("Welcome @mahmutunder");
-        label.setForeground(Color.WHITE);
-        bottomPanel.add(label);
-
-        rightPanel.add(tester, BorderLayout.NORTH);
-        rightPanel.add(bottomPanel, BorderLayout.SOUTH);
 
         frame.add(scrollPane, BorderLayout.WEST);
         frame.add(rightPanel, BorderLayout.EAST);
@@ -71,6 +50,34 @@ public class GUIExample {
 
 
         frame.setVisible(true);
+    }
+
+    private void buildPanel() {
+        regExInfo=new JLabel(regexInfo);
+        regExInfo.setBorder(BorderFactory.createEmptyBorder(20,20,20,20));
+        regExInfo.setBackground(Color.WHITE);
+        regExInfo.setOpaque(true);
+
+
+
+        scrollPane = new JScrollPane(regExInfo);
+        scrollPane.createHorizontalScrollBar();
+
+        // Right panel
+        rightPanel = new JPanel(new BorderLayout());
+        rightPanel.setBackground(Color.WHITE);
+        rightPanel.setPreferredSize(new Dimension(400,700));
+
+        // Bottom panel
+        bottomPanel = new JPanel();
+        bottomPanel.setBackground(Color.DARK_GRAY);
+
+        label = new JLabel("Welcome @mahmutunder");
+        label.setForeground(Color.WHITE);
+        bottomPanel.add(label);
+
+        rightPanel.add(tester, BorderLayout.NORTH);
+        rightPanel.add(bottomPanel, BorderLayout.SOUTH);
     }
 
 }

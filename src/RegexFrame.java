@@ -37,7 +37,7 @@ public class RegexFrame {
     private  JLabel label;
     public RegexFrame(){
 
-      frame = new JFrame("GUI Example");
+      frame = new JFrame("Regular Expression");
       frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
       buildPanel();

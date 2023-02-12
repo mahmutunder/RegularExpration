@@ -1,12 +1,8 @@
+import javax.swing.*;
+import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import javax.swing.JButton;
-
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
-import javax.swing.border.EmptyBorder;
 
 public class RegExTester extends JPanel {
 
@@ -18,31 +14,37 @@ public class RegExTester extends JPanel {
 
     public RegExTester() {
 
+        // to hold all components
         contentPane = new JPanel();
         contentPane.setBorder(new EmptyBorder(10, 10, 10, 10));
         contentPane.setLayout(new BorderLayout(0, 10));
-
         this.setBackground(Color.DARK_GRAY);
 
-       inputPanel = new JPanel();
-
+        // for regex and string input field
+        inputPanel = new JPanel();
         inputPanel.setLayout(new GridLayout(2, 2, 10, 10));
+        inputPanel.setBackground(Color.WHITE);
+
+
         contentPane.add(inputPanel, BorderLayout.NORTH);
 
+        // add css to contentPane
         contentPane.setBackground(Color.WHITE);
-        contentPane.setPreferredSize(new Dimension(360,200));
+        contentPane.setPreferredSize(new Dimension(360, 200));
 
+
+        regexField = new JTextField(20);
+        stringField = new JTextField(20);
+
+
+        inputPanel.setPreferredSize(new Dimension(360, 100));
         inputPanel.add(new JLabel("Regex:"));
-        regexField = new JTextField(10);
-        inputPanel.add(regexField);
-
-        inputPanel.setPreferredSize(new Dimension(360,100));
         inputPanel.add(new JLabel("String:"));
-        stringField = new JTextField(10);
+        inputPanel.add(regexField);
         inputPanel.add(stringField);
 
-         matchButton = new JButton("Match");
-         matchButton.setFont(new Font(Font.MONOSPACED,Font.BOLD,15));
+        matchButton = new JButton("Match");
+        matchButton.setFont(new Font(Font.MONOSPACED, Font.BOLD, 20));
         matchButton.addActionListener(e -> match());
         contentPane.add(matchButton, BorderLayout.SOUTH);
 

@@ -29,8 +29,8 @@ public class GUIExample {
         }
     }
 
+    public GUIExample(){
 
-    public static void main(String[] args) {
         JFrame frame = new JFrame("GUI Example");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         JLabel regExInfo=new JLabel(regexInfo);
@@ -52,10 +52,6 @@ public class GUIExample {
         rightPanel.setPreferredSize(new Dimension(400,700));
 
 
-        // Top panel
-
-
-
 
         // Bottom panel
         JPanel bottomPanel = new JPanel();
@@ -70,10 +66,11 @@ public class GUIExample {
 
         frame.add(scrollPane, BorderLayout.WEST);
         frame.add(rightPanel, BorderLayout.EAST);
-        frame.setSize(1125,700);
+        frame.setSize(1138,700);
         frame.setLocationRelativeTo(null);
 
 
         frame.setVisible(true);
     }
+
 }

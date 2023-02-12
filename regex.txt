@@ -1,0 +1,70 @@
+Predefined Characters Classes
+
+    . : Matches any character (wildcard). For example: "a", "x", "_", "5"
+    \d : Matches any digit (0-9).
+    \D : Matches any non-digit (anything other than 0-9).
+    \s : Matches any white space character (space, tab, return, new line, or backspace).
+    \S : Matches any character other than a white space character.
+    \w : Matches any word character (a-z, A-Z, 0-9, or underscore).
+    \W : Matches any character other than a word character.
+
+Custom Classes
+
+    [bcd] : Matches any of the characters in the square brackets. For example, a[bcd]e would match "abe", "ace", or
+     "ade".[aAeEiIoOuU] : Matches any of the uppercase or lowercase vowels. For example, b[aAeEiIoOuU]t would match
+     "bat", "Bit", "but", etc.
+    [bB][aAeEiIoOuU][tT] : Matches a string that starts with "b" or "B", followed by one of the vowels, and ends with
+     "t" or "T". For example, this would match "bat" or "Bit".
+
+Ranges
+
+    [a-z] : Matches any character from lowercase "a" to "z".
+    [0-5] : Matches any digit from "0" to "5".
+    [a-zA-Z0-9] : Matches any character from lowercase "a" to "z", uppercase "A" to "Z", or digit "0" to "9".
+
+Negation with ^
+
+    [^cf]at : Matches a three-letter word that ends in "at" but isn't "fat" or "cat". Can start with "f" or "c".
+
+Matching Multiple Characters
+
+    ? : Matches zero or one instance of the preceding character or group.
+    * : Matches zero or more instances of the preceding character or group.
+    + : Matches one or more instances of the preceding character or group.
+    {n} : Matches exactly n instances of the preceding character or group.
+    {n,} : Matches at least n instances of the preceding character or group.
+    {n,m} : Matches at least n but no more than m instances of the preceding character or group.
+
+Escapes
+
+    \( and \) : Escapes the left and right parentheses. For example, \(\d{3}\) would match "(510)".
+    \\ : Escapes the backslash. For example, \d\d\\\d\d would match "10\22".
+
+Parentheses for Grouping
+
+    (...) : Groups characters together to form a single entity. For example, (bkla)+ would match "bla"
+
+    Using special characters:
+
+    \t Matches a tab character
+    \n Matches a newline character
+    \r Matches a return character
+    \f Matches a form feed character
+
+    Anchors:
+
+    ^ Matches the start of a line
+    $ Matches the end of a line
+    \b Matches a word boundary
+    \B Matches a non-word boundary
+
+    Lookaheads and Lookbehinds:
+
+    (?=regex) Positive lookahead, matches only if the regex inside the lookahead matches
+    (?!regex) Negative lookahead, matches only if the regex inside the lookahead does NOT match
+    (?<=regex) Positive lookbehind, matches only if the regex inside the lookbehind matches
+    (?<!regex) Negative lookbehind, matches only if the regex inside the lookbehind does NOT match
+
+    You can also use shorthand character classes such as \d, \w, and \s, to match digits, word characters,
+    and white space characters respectively. And, you can use the negation of these shorthand classes, \D, \W, and \S,
+    to match anything other than digits, word characters, and white space characters.

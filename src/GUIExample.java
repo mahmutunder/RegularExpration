@@ -7,11 +7,14 @@ import java.util.Scanner;
 
 public class GUIExample {
 
+    private static RegExTester tester;
+
     private static File regexFile=new File("regex.txt");
     private static Scanner scanner;
     private static String regexInfo;
 
     static {
+        tester= new RegExTester();
         try {
             scanner = new Scanner(regexFile);
 
@@ -48,14 +51,11 @@ public class GUIExample {
         rightPanel.setBackground(Color.WHITE);
         rightPanel.setPreferredSize(new Dimension(400,700));
 
-        // Top panel
-        JPanel topPanel = new JPanel();
-        topPanel.setBackground(Color.LIGHT_GRAY);
 
-        JTextField textField = new JTextField(10);
-        JButton button = new JButton("Submit");
-        topPanel.add(textField);
-        topPanel.add(button);
+        // Top panel
+
+
+
 
         // Bottom panel
         JPanel bottomPanel = new JPanel();
@@ -65,7 +65,7 @@ public class GUIExample {
         label.setForeground(Color.WHITE);
         bottomPanel.add(label);
 
-        rightPanel.add(topPanel, BorderLayout.NORTH);
+        rightPanel.add(tester, BorderLayout.NORTH);
         rightPanel.add(bottomPanel, BorderLayout.SOUTH);
 
         frame.add(scrollPane, BorderLayout.WEST);

@@ -48,6 +48,7 @@ public class RegexFrame {
         frame.setSize(1138,700);
         frame.setLocationRelativeTo(null);
 
+        frame.setResizable(false);
 
         frame.setVisible(true);
     }
@@ -56,12 +57,14 @@ public class RegexFrame {
         regExInfo=new JLabel(regexInfo);
         regExInfo.setBorder(BorderFactory.createEmptyBorder(20,20,20,20));
         regExInfo.setBackground(Color.WHITE);
+
         regExInfo.setOpaque(true);
 
 
 
         scrollPane = new JScrollPane(regExInfo);
         scrollPane.createHorizontalScrollBar();
+
 
         // Right panel
         rightPanel = new JPanel(new BorderLayout());
@@ -76,7 +79,12 @@ public class RegexFrame {
         label.setForeground(Color.WHITE);
         bottomPanel.add(label);
 
+        JLabel pane= new JLabel("hello");
+        pane.setHorizontalAlignment(JLabel.CENTER);
+
+
         rightPanel.add(tester, BorderLayout.NORTH);
+        rightPanel.add(pane,BorderLayout.CENTER);
         rightPanel.add(bottomPanel, BorderLayout.SOUTH);
     }
 

@@ -68,3 +68,36 @@ Parentheses for Grouping
     You can also use shorthand character classes such as \d, \w, and \s, to match digits, word characters,
     and white space characters respectively. And, you can use the negation of these shorthand classes, \D, \W, and \S,
     to match anything other than digits, word characters, and white space characters.
+
+    -------------------------------------------------------------------------------------------------------
+    ----********************************* Examples ***************************************************-----
+
+     1.   \d: Matches any digit. For example, \d\d\d would match "123", but not "abc".
+
+     2.    \w: Matches any word character, which includes letters (upper-case or lower-case), digits, and
+        underscore characters. For example, \w\w\w would match "abc", "ABC", "123", or "_ab".
+
+     3.   \s: Matches any whitespace character, including spaces, tabs, and newlines. For example, \s\s\s
+        would match " " (three spaces).
+
+     4.   [A-Z]: Matches any uppercase letter from "A" to "Z". For example, [A-Z][A-Z][A-Z] would match
+         "ABC", but not "abc".
+
+     5.   ^: Matches the beginning of a line. For example, ^A would match "A" at the beginning of a line,
+         but not "a" or "A" in the middle of a line.
+
+     6.   $: Matches the end of a line. For example, A$ would match "A" at the end of a line, but not "a" or "A"
+         in the middle of a line.
+
+     7.   *: Matches zero or more occurrences of the preceding character or group. For example, A* would match "",
+         "A", "AA", "AAA", etc.
+
+     8.   +: Matches one or more occurrences of the preceding character or group. For example, A+ would match "A",
+         "AA", "AAA", etc., but not "".
+
+     9.   ?: Matches zero or one occurrence of the preceding character or group. For example, A? would match "", "A".
+
+     10.   {m,n}: Matches between m and n occurrences of the preceding character or group. For example, A{2,4}
+        would match "AA", "AAA", or "AAAA", but not "A" or "AAAAA".
+
+
